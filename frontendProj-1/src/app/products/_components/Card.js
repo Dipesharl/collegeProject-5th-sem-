@@ -17,6 +17,7 @@ const ProductCard = ({ product }) => {
           alt="featured"
           height={300}
           width={400}
+          style={{ height: "auto" }}
         />
       ) : (
         <div className="w-full h-40 flex items-center justify-center bg-primary/10">

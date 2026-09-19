@@ -1,4 +1,4 @@
-import heroImg from "@/assets/images/hero.jpg";
+import heroImg from "@/assets/images/hero.webp";
 import { ABOUT_ROUTE, PRODUCTS_ROUTE } from "@/constants/routes";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,14 +13,14 @@ const Hero = () => {
             alt="Hero image"
             height={900}
             width={1200}
-            className="max-w-full w-auto h-full rounded-2xl shadow-lg"
+            className="max-w-full h-full rounded-2xl shadow-lg"
           />
           <div>
             <span className="text-accent bg-accent/10 text-xs font-medium px-4 py-1 rounded-xl">
               Latest Collection 2026 ⚡
             </span>
             <h1 className="mt-2 text-4xl dark:text-white font-bold tracking-tight md:text-5xl lg:text-6xl">
-              Choose Your Everyday Style
+              Choose The Best Tech of Your need!
             </h1>
             <p className="text-light dark:text-gray-400 py-4">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat

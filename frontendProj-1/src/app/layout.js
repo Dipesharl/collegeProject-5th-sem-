@@ -5,8 +5,8 @@ import { ToastContainer } from "react-toastify";
 
 export const metadata = {
   title: {
-    default: "E-fashion",
-    template: "%s | E-fashion",
+    default: "Tech-Hub ",
+    template: "%s | Tech-Hub ",
   },
   description: "Online ecommerce platform for clothes and shoes.",
   keywords: "Online shopping in Nepal, Best clothing items",

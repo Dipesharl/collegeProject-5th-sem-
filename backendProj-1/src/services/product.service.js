@@ -34,6 +34,26 @@ const getProductById = async (id) => {
   return product;
 };
 
+// const createProduct = async (data, files, userId) => {
+//   const uploadedFiles = await uploadFile(files);
+
+//   const promptMessage = PRODUCT_DESCRIPTION_PROMPT.replace("%s", data.name)
+//     .replace("%s", data.category)
+//     .replace("%s", data.brand);
+
+//   // const description = data.description ?? (await promptAI(promptMessage));
+//   const description = data.description?.trim()
+//   ? data.description
+//   : await promptAI(promptMessage);
+
+//   return await Product.create({
+//     ...data,
+//     description,
+//     imageUrls: uploadedFiles.map((file) => file.secure_url),
+//     createdBy: userId,
+//   });
+// };
+
 const createProduct = async (data, files, userId) => {
   const uploadedFiles = await uploadFile(files);
 
@@ -41,12 +61,25 @@ const createProduct = async (data, files, userId) => {
     .replace("%s", data.category)
     .replace("%s", data.brand);
 
-  const description = data.description ?? (await promptAI(promptMessage));
+  console.log("RAW description received:", JSON.stringify(data.description));
+
+  let description;
+  if (data.description?.trim()) {
+    description = data.description;
+  } else {
+    try {
+      description = await promptAI(promptMessage);
+      console.log("AI description generated:", description);
+    } catch (err) {
+      console.error("promptAI FAILED:", err);
+      description = ""; 
+    }
+  }
 
   return await Product.create({
     ...data,
     description,
-    imageUrls: uploadedFiles.map((file) => file.url),
+    imageUrls: uploadedFiles.map((file) => file.secure_url),
     createdBy: userId,
   });
 };
@@ -57,7 +90,7 @@ const updateProduct = async (id, input, files) => {
   if (files && files.length > 0) {
     const uploadedFiles = await uploadFile(files);
 
-    updateData.imageUrls = uploadedFiles.map((file) => file.url);
+    updateData.imageUrls = uploadedFiles.map((file) => file.secure_url);
   }
 
   return await Product.findByIdAndUpdate(id, updateData, {
