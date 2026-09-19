@@ -1,0 +1,91 @@
+const Contact = () => {
+  return (
+    <section id="contact" className="py-12">
+      <div className="container mx-auto px-4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.250860094033!2d85.3267407!3d27.740407500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb193a7c6df89f%3A0xe31b78e1544b8028!2z4KSP4KS44KST4KSP4KS4IOCkruClh-CkqOCkquCkvuCkteCksCDgpKrgpY3gpLDgpL4uIOCksuCkvy4!5e0!3m2!1sen!2snp!4v1789794959581!5m2!1sen!2snp"
+          height={200}
+          style={{ border: 0, width: "100%", borderRadius: "2rem" }}
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-8">
+          <form className="flex flex-col gap-3" action="#">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Your name"
+              className="w-full bg-white border border-primary/20 rounded-2xl px-4 py-2 focus:outline-2 focus:outline-primary"
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Email address"
+              className="w-full bg-white border border-primary/20 rounded-2xl px-4 py-2 focus:outline-2 focus:outline-primary"
+            />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              placeholder="Phone number"
+              className="w-full bg-white border border-primary/20 rounded-2xl px-4 py-2 focus:outline-2 focus:outline-primary"
+            />
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Your message..."
+              rows={5}
+              className="w-full bg-white border border-primary/20 rounded-2xl px-4 py-2 focus:outline-2 focus:outline-primary"
+              defaultValue={""}
+            />
+            <button className="bg-primary rounded-3xl text-white px-10 py-3 transition duration-300 ease max-w-fit mt-2">
+              Send Message
+            </button>
+          </form>
+          <div className="info">
+            <h2 className="text-3xl dark:text-white font-bold">
+              Let&apos;s Connect
+            </h2>
+            <p className="text-light dark:text-gray-300 text-sm my-4">
+              Have any questions? Please reach out to us.
+            </p>
+            <a
+              href="https://maps.app.goo.gl/iyG5hLzgYemCMkeS8"
+              target="_blank"
+              className="m-1 text-sm block text-dark dark:text-white hover:text-primary"
+            >
+              📍 Basundhara,kathmandu
+            </a>
+            <a
+              href="mailto:info@codeit.com.np"
+              className="m-1 text-sm block text-dark dark:text-white hover:text-primary"
+            >
+              📨 dipesharl@gmail.com.np
+            </a>
+            <a
+              href="tel:01-001100"
+              className="m-1 text-sm block text-dark dark:text-white hover:text-primary"
+            >
+              📞 01-001100
+            </a>
+            <a
+              href="https://wa.me/9862130505"
+              className="m-1 text-sm block text-dark dark:text-white hover:text-primary"
+            >
+              💬 9813089078
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
